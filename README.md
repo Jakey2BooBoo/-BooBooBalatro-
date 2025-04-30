@@ -24,18 +24,18 @@ Balatro Mod featuring new Jokers, Enhancmenets, and Decks (with more to come)
 - Blue Stained Glass:
     1.5x Chips when scored, chance to destroy when played or discarded
 - Gold Stained Glass:
-    Earn $5 when scored, chance to shatter when played or discarded"
+    Earn $5 when scored, chance to shatter when played or discarded
 - Green Stained Glass:
-    Chance to increase all probabilities for the round, chance to shatter when played or discarded"
+    Chance to increase all probabilities for the round, chance to shatter when played or discarded
 - Wild Glass:
     Combination of Wild card and Glass card effects
 ### Stone Upgrades
-- Kintsugi
-    Earn $5 when scored, reduces by $1 each scoring.
-- Geode
+- Kintsugi:
+    Earn $5 when scored, reduces by $1 each scoring
+- Geode:
     Balances chips and mult when scored, chance of being destroyed
-- Ruby Deposit,
-    Scores x4 Mult when scored, reduces by x0.5 Mult each scoring.
+- Ruby Deposit:
+    Scores x4 Mult when scored, reduces by x0.5 Mult each scoring
 ## Jokers:
 ### Denial
   Gold, blue, and purple seals have additional effects when played, discarded, and held in hand at the end of round
