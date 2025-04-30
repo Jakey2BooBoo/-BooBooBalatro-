@@ -1,0 +1,16 @@
+{
+    "name": "Balatro Beyond",
+    "id": "bb",
+    "version": "0.1.0~alpha-25w18a",
+    "website_url": "youtube.com",
+    "description": "New Jokers and features to discover",
+    "prefix": "bb",
+    "author": ["Jakey & Balatro Discord"],
+    "main_file": "main.lua",
+    "priority": -5,
+    "badge_colour": "69ACAB",
+    "badge_text_colour": "FFFFFF",
+    "dependencies": [
+        "Steamodded (>=1.0.0~ALPHA-1325a)"
+    ]
+}
