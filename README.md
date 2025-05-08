@@ -1,4 +1,4 @@
-# BooBooBalatro
+# !BooBooBalatro!
 Balatro Mod featuring new Jokers, Enhancmenets, and Decks (with more to come)
 
 ## Features (as of V0.1.1)
