@@ -4,6 +4,7 @@ SMODS.Joker {
     atlas = 'jokers',
     pos = { x = 4, y = 2 },
     cost = 5,
+    blueprint_compat = true,
     config = { extra = {odds = 10}},
 
     calculate = function(self, card, context)

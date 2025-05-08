@@ -3,7 +3,7 @@ SMODS.Consumable:take_ownership('justice',
     loc_txt = {
         text={
             "Enhances {C:attention}#1#{} selected",
-            "non-{C:attention}#2#{} into a",
+            "Non-{C:attention}#2#{} into a",
             "{C:attention}#2#{} or {C:dark_edition}stains{}",
             "{C:attention}#1#{} selected {C:attention}#2#"
         },
@@ -35,6 +35,13 @@ SMODS.Consumable:take_ownership('justice',
                     play_sound('tarot1')
                     return true end
                 }))
+            elseif SMODS.has_enhancement(c, 'm_wild') then
+                G.E_MANAGER:add_event(Event({trigger = 'before',delay = 0.3, func = function()
+                    c:set_ability('m_bb_wild_glass')
+                    c:juice_up()
+                    play_sound('tarot1')
+                    return true end
+                }))
             else
                 G.E_MANAGER:add_event(Event({trigger = 'before',delay = 0.3, func = function()
                     c:set_ability('m_glass')
@@ -54,7 +61,7 @@ SMODS.Consumable:take_ownership('tower',
     loc_txt = {
         text={
             "Enhances {C:attention}#1#{} selected",
-            "non-{C:attention}#2#{} into a",
+            "Non-{C:attention}#2#{} into a",
             "{C:attention}#2#{} or {C:dark_edition}upgrades{}",
             "{C:attention}#1#{} selected {C:attention}#2#"
         },
@@ -89,6 +96,31 @@ SMODS.Consumable:take_ownership('tower',
             else
                 G.E_MANAGER:add_event(Event({trigger = 'before',delay = 0.3, func = function()
                     c:set_ability('m_stone')
+                    c:juice_up()
+                    play_sound('tarot1')
+                    return true end
+                }))
+            end
+        end
+    end
+    },
+    true
+)
+
+SMODS.Consumable:take_ownership('lovers',
+    {
+    use = function(self, card, area, copier)
+        for _, c in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(c, 'm_glass') then
+                G.E_MANAGER:add_event(Event({trigger = 'before',delay = 0.3, func = function()
+                    c:set_ability('m_bb_wild_glass')
+                    c:juice_up()
+                    play_sound('tarot1')
+                    return true end
+                }))
+            else
+                G.E_MANAGER:add_event(Event({trigger = 'before',delay = 0.3, func = function()
+                    c:set_ability('m_wild')
                     c:juice_up()
                     play_sound('tarot1')
                     return true end

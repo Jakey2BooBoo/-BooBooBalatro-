@@ -4,6 +4,7 @@ SMODS.Joker {
     atlas = 'jokers',
     pos = { x = 1, y = 0 },
     cost = 8,
+    blueprint_compat = true,
     config = {extra = {odds = 5}},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.c_death

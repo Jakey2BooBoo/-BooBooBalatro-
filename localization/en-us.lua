@@ -35,16 +35,16 @@ return {
                 text = {
                     "{X:chips,C:white} X#3# {} Chips when scored",
                     "{C:green}#1# in #2#{} chance to shatter",
-                    "when played, held, or discarded"
+                    "when played or discarded"
                 }
             },
             m_bb_stained_gold = {
                 name = "Gold Stained Glass",
                 label = "Gold Stained Glass",
                 text = {
-                    "Earn {C:money}$#1#{} when scored",
+                    "Earn {C:money}$#3#{} when scored",
                     "{C:green}#1# in #2# chance{} to shatter",
-                    "when played, held, or discarded"
+                    "when played or discarded"
                 }
             },
             m_bb_stained_green = {
@@ -54,7 +54,7 @@ return {
                     "{C:green}#1# in #2#{} chance to increase",
                     "all probabilities for the round by {X:green,C:white}+1{}",
                     "{C:green}#1# in #3#{} chance to shatter",
-                    "when played, held, or discarded"
+                    "when played or discarded"
                 }
             },
             m_bb_wild_glass = {
@@ -95,8 +95,8 @@ return {
             j_bb_denial = {
                 name = 'Denial',
                 text = {
-                    "{C:gold}Gold{}, {C:blue}Blue{}, and {C:purple}Purple{} seals have",
-                    "additional effects when {C:blue}played{}, {C:red}discarded{}",
+                    "{C:gold}Gold{}, {C:purple}Purple{}, and {C:blue}Blue{}, seals have",
+                    "additional effects when {C:red}discarded{}",
                     "and {C:attention}held in hand at the end of round{}",
                 }
             },
@@ -172,8 +172,7 @@ return {
                     "{C:green}#1# in #2#{} chance to upgrade each",
                     "scoring {C:attention}Bonus{} or {C:attention}Mult{} card with",
                     "{C:dark_edition}Foil{} or {C:dark_edition}Holographic{} edition,",
-                    "respectively.",
-                    "{C:inactive} and maybe others...{}"
+                    "respectively."
                 },
             },
             j_bb_lust = {
@@ -189,7 +188,7 @@ return {
                 text = {
                     "When using a {C:planet}Planet{} card,",
                     "{C:green}#1# in #2#{} chance to increase",
-                    "{C:chips}chips{} and {C:mult}mult{} of {C:attention}each poker hand{}",
+                    "{C:chips}Chips{} and {C:mult}Mult{} of {C:attention}each poker hand{}",
                     "that contains the upgraded hand",
                     "{C:inactive}(e.g. {C:planet}Venus{} has a chance to increase {C:planet}Mars{})"
                 }
@@ -224,7 +223,7 @@ return {
                 text = {
                     "If scored hand contains a {C:attention}Straight,",
                     "each held card that continues the",
-                    "{C:attention}straight gives {X:mult,C:white} X#1# {} Mult"
+                    "{C:attention}straight{} gives {X:mult,C:white} X#1# {} Mult"
                 }
             },
             j_bb_gifts = {
@@ -248,8 +247,6 @@ return {
             denial_blue = {
                 name = 'Blue Seal',
                 text = {
-                    '{C:blue}When played:{} {C:green}1 in 8{} chance to',
-                    'create a {C:dark_edition}Spectral{} card,',
                     '{C:red}When discarded:{} creates a {C:planet}Planet{} card,',
                     '{C:attention}When held at end of round:{} gives the',
                     '{C:planet}Planet{} card for final played {C:attention}poker hand{}',
@@ -258,8 +255,6 @@ return {
             denial_purple = {
                 name = 'Purple Seal',
                 text = {
-                    '{C:blue}When played:{} {C:green}1 in 8{} chance to',
-                    'create a {C:dark_edition}Spectral{} card,',
                     '{C:red}When discarded:{} creates a {C:tarot}Tarot{} card,',
                     '{C:attention}When held at end of round:{} gives the',
                     'last played {C:tarot}Tarot{} card.'

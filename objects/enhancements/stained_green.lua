@@ -5,7 +5,15 @@ SMODS.Enhancement {
 	shatters = true,
     weight = 2,
 	config = {extra = {break_odds = 16, bonus_odds = 4}},
-    in_pool = function() return false end,
+    in_pool = function(self, args)
+        available = false
+        for _, c in ipairs(G.playing_cards) do
+            if SMODS.has_enhancement(c, 'm_bb_stained_green') then
+                available = true
+            end
+        end
+        return available
+    end,
 	loc_vars = function(self, info_queue, card)
         return {
             vars = {
@@ -15,12 +23,7 @@ SMODS.Enhancement {
 			}
         }
     end,
-
 	calculate = function(self, card, context)
-		if context.setting_blind then
-			G.GAME.green_shattered = false
-		end
-
 		if context.cardarea == G.play and context.main_scoring then
 			if pseudorandom('m_stained_green') <= G.GAME.probabilities.normal / card.ability.extra.bonus_odds then
 				G.E_MANAGER:add_event(Event({
@@ -37,18 +40,15 @@ SMODS.Enhancement {
 						return true
 					end)
 				}))
-				
 			end
 		end
-       
-		if context.destroy_card then
+		if context.destroy_card and context.cardarea == G.play then
 			if SMODS.has_enhancement(context.destroy_card, 'm_bb_stained_green') and pseudorandom('m_stained_green') <= G.GAME.probabilities.normal / card.ability.extra.break_odds then
 				return {
 					remove = true
 				}
             end
 		end
-
 		if context.discard and context.other_card then
             if SMODS.has_enhancement(context.other_card, 'm_bb_stained_green') and pseudorandom('m_stained_green') <= G.GAME.probabilities.normal / card.ability.extra.break_odds then
                 return {

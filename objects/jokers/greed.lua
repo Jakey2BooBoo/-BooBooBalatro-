@@ -4,6 +4,7 @@ SMODS.Joker {
     atlas = 'jokers',
     pos = { x = 3, y = 1 },
     cost = 7,
+    blueprint_compat = true,
     config = { extra = {odds = 7, play_dollars = 1, held_dollars = 1}},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_SEALS.Gold

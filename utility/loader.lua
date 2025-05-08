@@ -58,7 +58,7 @@ end
 
 local consumables = {
     --'io',
-    --'void'
+    'void'
 }
 
 for _, key in ipairs(consumables) do

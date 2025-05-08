@@ -2,7 +2,6 @@ local igo = Game.init_game_object
 function Game:init_game_object()
 	local ret = igo(self)
 	ret.last_tarot = nil
-    ret.green_shattered = false
     ret.probabilities.base = 1
 	return ret
 end

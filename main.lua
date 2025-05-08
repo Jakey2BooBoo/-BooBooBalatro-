@@ -1,5 +1,5 @@
 --- STEAMODDED HEADER
---- MOD_NAME: Balatro Beyond
+--- MOD_NAME: !BooBooBalatro!
 --- MOD_ID: bb
 --- MOD_AUTHOR: [JakeyBooBoo]
 --- MOD_DESCRIPTION: Various Jokers & Features

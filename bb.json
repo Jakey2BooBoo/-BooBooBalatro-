@@ -1,13 +1,13 @@
 {
-    "name": "Balatro Beyond",
+    "name": "!BooBooBalatro!",
     "id": "bb",
-    "version": "0.1.0~alpha-25w18a",
+    "version": "0.1.1~25w19a",
     "website_url": "youtube.com",
-    "description": "New Jokers and features to discover",
+    "description": "New Jokers with hidden features",
     "prefix": "bb",
-    "author": ["Jakey & Balatro Discord"],
+    "author": ["JakeyBooBoo"],
     "main_file": "main.lua",
-    "priority": -5,
+    "priority": 1312,
     "badge_colour": "69ACAB",
     "badge_text_colour": "FFFFFF",
     "dependencies": [

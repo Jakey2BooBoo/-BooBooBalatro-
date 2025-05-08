@@ -4,7 +4,7 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Void',
         text = {
-            "test"
+            "Upgrade up to 3 stone or glass cards"
         },
     },
     atlas = 'consumables',
@@ -12,10 +12,22 @@ SMODS.Consumable {
     pos = {x = 0, y = 0},
     config = {extra = {amount = 1, selected = 1}},
     cost = 4,
+    in_pool = function(self, args)
+        available = false
+        for _, c in ipairs(G.playing_cards) do
+            if SMODS.has_enhancement(c, 'm_glass') then
+                available = true
+            elseif SMODS.has_enhancement(c, 'm_stone') then
+                available = true
+            end
+        end
+        return available
+    end,
     loc_vars = function(self, info_queue, center)
         return {
             vars =
             {
+
             },
         }
     end,
