@@ -1,0 +1,27 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+# Rental jokers
+# G.UIDEF#challenge_list
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "jokers:emplace(card)"
+position = "before"
+payload = '''
+if v.rental then card:set_rental(true) end
+'''
+match_indent = true
+
+# Make them appear in game
+# Game#start_run
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "if v.pinned then _joker.pinned = true end"
+position = "after"
+payload = '''
+if v.rental then _joker:set_rental(true) end
+'''
+match_indent = true
