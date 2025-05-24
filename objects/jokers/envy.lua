@@ -48,7 +48,10 @@ SMODS.Joker {
                         local random_unscored = i
                         G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
                             copy_card(context.full_hand[random_scored], context.full_hand[random_unscored])
-                            context.full_hand[random_unscored]:flip();play_sound('timpani', percent, 0.6);context.full_hand[random_unscored]:juice_up(0.3, 0.3);context.full_hand[random_unscored]:flip();
+                            context.full_hand[random_unscored]:flip()
+                            play_sound('timpani', percent, 0.6)
+                            context.full_hand[random_unscored]:juice_up(0.3, 0.3)
+                            context.full_hand[random_unscored]:flip()
                             return true end 
                         }))
                         G.E_MANAGER:add_event(Event({trigger = 'before',delay = 1, func = function() 

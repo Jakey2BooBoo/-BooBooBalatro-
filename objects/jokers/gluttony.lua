@@ -2,7 +2,7 @@ SMODS.Joker {
     key = 'gluttony',
     rarity = 2,
     atlas = 'jokers',
-    pos = { x = 5, y = 0 },
+    pos = { x = 6, y = 1 },
     cost = 7,
     blueprint_compat = true,
     config = { extra = {odds = 7}},
@@ -19,7 +19,7 @@ SMODS.Joker {
         }
     end,
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main then
+        if context.joker_main and context.cardarea == G.jokers then
             for _, c in ipairs(context.scoring_hand) do
                 local editions = {'e_foil','e_holo','e_polychrome','e_negative'}
                 local seals = {'Gold', 'Red', 'Blue', 'Purple'}

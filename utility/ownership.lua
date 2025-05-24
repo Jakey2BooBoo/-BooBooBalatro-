@@ -1,6 +1,9 @@
 SMODS.Consumable:take_ownership('justice',
     {
     loc_txt = {
+        name ={
+            "The Justice"
+        },
         text={
             "Enhances {C:attention}#1#{} selected",
             "Non-{C:attention}#2#{} into a",
@@ -59,6 +62,9 @@ SMODS.Consumable:take_ownership('justice',
 SMODS.Consumable:take_ownership('tower',
     {
     loc_txt = {
+        name={
+            "The Tower"
+        },
         text={
             "Enhances {C:attention}#1#{} selected",
             "Non-{C:attention}#2#{} into a",
@@ -109,6 +115,30 @@ SMODS.Consumable:take_ownership('tower',
 
 SMODS.Consumable:take_ownership('lovers',
     {
+    loc_txt = {
+        text={
+            "Enhances {C:attention}#1#{} selected",
+            "card into a",
+            "{C:attention}#2#",
+        },
+    },
+    config = {mod_conv = 'm_wild', max_highlighted = 1},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = G.P_CENTERS[card.ability.mod_conv]
+        return {
+            vars = {
+                card.ability.max_highlighted,
+                G.P_CENTERS[card.ability.mod_conv].name,
+            },
+        }
+    end,
+    can_use = function(self, card)
+        if #G.hand.highlighted == 1 then
+            return true
+        else
+            return false
+        end
+    end,
     use = function(self, card, area, copier)
         for _, c in ipairs(G.hand.highlighted) do
             if SMODS.has_enhancement(c, 'm_glass') then

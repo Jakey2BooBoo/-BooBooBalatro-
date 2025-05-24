@@ -21,7 +21,7 @@ SMODS.Back{
                 update_hand_text({ delay = 0 }, { mult = mult, chips = hand_chips })
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        local text = "Modulo!"
+                        local text = localize('bb_mod')
                         play_sound("slice1", 0.94, 0.3)
                         play_sound("slice1", 0.94 * 1.5, 0.2)
                         play_sound("tarot1", 1.5)

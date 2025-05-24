@@ -1,19 +1,40 @@
 return {
     descriptions = {
         Back={
+            b_bb_aid = {
+                name = "!Aid! Deck",
+                text={
+                    "{C:dark_edition}!BooBooBalatro! Jokers{}",
+                    "are {C:green}3x more likely{} to appear.",
+                    "Obtain a {C:attention}Charm Tag{} after",
+                    "defeating each blind."
+                },
+            },
             b_bb_modulo = {
                 name = "Modulo Deck",
                 text={
                     "If {C:chips}chips{} x {C:mult}mult{} surpasses",
                     "blind amount, subtracts blind",
-                    "amount from projected score"
+                    "amount from projected score",
+                    "{C:attention}-1{} Starting Ante",
+                    "{C:purple}+2{} Joker Slots"
                 },
             },
             b_bb_cathedral = {
                 name = "Cathedral Deck",
                 text={
-                    "Start with 5 full",
-                    "suits of glass cards"
+                    "Start with {C:attention}5{} full",
+                    "suits of {C:attention}upgraded{}",
+                    "Glass Cards"
+                },
+            },
+            b_bb_rogue = {
+                name = "Rogue Deck",
+                text={
+                    "Reroll Starts at {C:money}$10{}",
+                    "After Defeating each blind, gain a",
+                    "{C:blue}Standard{}, {C:tarot}Charm{},",
+                    "{C:planet}Meteor{}, and {C:attention}Buffoon{} Tag."
                 },
             },
         },
@@ -26,16 +47,17 @@ return {
                 text = {
                     "{X:mult,C:white} X#3# {} Mult when played or in hand",
                     "{C:green}#1# in #2#{} chance to shatter",
-                    "when played or discarded"
+                    "when scored or discarded"
                 }
             },
             m_bb_stained_blue = {
                 name = "Blue Stained Glass",
                 label = "Blue Stained Glass",
                 text = {
-                    "{X:chips,C:white} X#3# {} Chips when scored",
-                    "{C:green}#1# in #2#{} chance to shatter",
-                    "when played or discarded"
+                    "{C:green}#1# in #2#{} chance to {C:blue}upgrade{}",
+                    "played poker hand when scored.",
+                    "{C:green}#1# in #3#{} chance to shatter",
+                    "when scored or discarded"
                 }
             },
             m_bb_stained_gold = {
@@ -44,7 +66,7 @@ return {
                 text = {
                     "Earn {C:money}$#3#{} when scored",
                     "{C:green}#1# in #2# chance{} to shatter",
-                    "when played or discarded"
+                    "when scored or discarded"
                 }
             },
             m_bb_stained_green = {
@@ -54,7 +76,7 @@ return {
                     "{C:green}#1# in #2#{} chance to increase",
                     "all probabilities for the round by {X:green,C:white}+1{}",
                     "{C:green}#1# in #3#{} chance to shatter",
-                    "when played or discarded"
+                    "when scored or discarded"
                 }
             },
             m_bb_wild_glass = {
@@ -71,7 +93,8 @@ return {
                 label = "Kintsugi",
                 text = {
                     'Earn {C:gold}$#1#{} when scored.',
-                    'Reduces by {C:gold}$1{} each scoring.'
+                    'Reduces by {C:gold}$1{} each scoring.',
+                    '{C:inactive}no rank or suit{}'
                 }
             },
             m_bb_geode = {
@@ -79,7 +102,8 @@ return {
                 label = "Geode",
                 text = {
                     'Balances {C:blue}chips{} and {C:mult}mult{}',
-                    '{C:green}#1# in #2#{} chance of being destroyed'
+                    '{C:green}#1# in #2#{} chance of being destroyed',
+                    '{C:inactive}no rank or suit{}'
                 }
             },
             m_bb_deposit = {
@@ -87,7 +111,8 @@ return {
                 label = "Ruby Deposit",
                 text = {
                     'Scores {X:mult,C:white} X#1# {} Mult when scored.',
-                    'Reduces by {X:mult,C:white} X#2# {} Mult each scoring.'
+                    'Reduces by {X:mult,C:white} X#2# {} Mult each scoring.',
+                    '{C:inactive}no rank or suit{}'
                 }
             },
         },
@@ -95,17 +120,18 @@ return {
             j_bb_denial = {
                 name = 'Denial',
                 text = {
-                    "{C:gold}Gold{}, {C:purple}Purple{}, and {C:blue}Blue{}, seals have",
+                    "{C:gold}Gold{}, {C:purple}Purple{}, and {C:blue}Blue{} seals have",
                     "additional effects when {C:red}discarded{}",
                     "and {C:attention}held in hand at the end of round{}",
+                    "{inactive}and something else...{}"
                 }
             },
             j_bb_anger = {
                 name = 'Anger',
                 text = {
-                    '{X:chips,C:white} X#2# {} Chips, additional',
-                    '{X:chips,C:white} X#1# {} Chips per {C:attention}unscored{}',
-                    'card in played hand'
+                    'Gains {X:mult,C:white} X#1# {} Mult per',
+                    '{C:attention}unscored{} card in played hand',
+                    '{C:inactive}(Starts at {X:mult,C:white} X#2# {} Mult)',
                 }
             },
             j_bb_bargaining = {
@@ -113,7 +139,8 @@ return {
                 text = {
                     "Cards played have a {C:green}#1# in #2#{}",
                     "chance to be destroyed and a {C:green}#1# in #2#{}",
-                    "chance to grant a copy of {C:attention}Death{}"
+                    "chance to grant a copy of {C:attention}Death{}",
+                    "{C:inactive}(Must have room){}"
                 }
             },
             j_bb_depression = {
@@ -136,15 +163,17 @@ return {
             j_bb_pride = {
                 name = 'Pride',
                 text = {
-                    "{C:attention}Unenhanced{} cards have a {C:green}#1# in #2#{}",
-                    "chance to gain a random {C:attention}seal{}"
+                    "{C:attention}Unenhanced{} cards have",
+                    "a {C:green}#1# in #2#{} chance to",
+                    "gain a random {C:attention}seal{}"
                 }
             },
             j_bb_envy = {
                 name = 'Envy',
                 text = {
-                    "Every unscored cared has a {C:green}#1# in #2#{} chance",
-                    "to turn into a copy of a scored card."
+                    "Every unscored cared has a",
+                    "{C:green}#1# in #2#{} chance to turn",
+                    "into a {C:attention}copy{} of a scored card."
                 }
             },
             j_bb_wrath = {
@@ -160,10 +189,9 @@ return {
             j_bb_greed = {
                 name = 'Greed',
                 text = {
-                    'Cards with {C:gold}gold{} seals gain {C:gold}$#3#{} scoring bonus',
-                    '{C:gold}Gold{} cards gain {C:gold}$#4#{} bonus when held',
-                    '{C:gold}Gold{} cards and cards with {C:gold}gold{}',
-                    'seals are {C:red}destroyed{} when discarded'
+                    'Cards with {C:gold}gold{} seals or {C:gold}gold{}',
+                    'ehnhancements gain {C:gold}$#3#{} to their bonus when triggerd.',
+                    'Both are {C:red}destroyed{} when they are discarded'
                 }
             },
             j_bb_gluttony = {
@@ -181,6 +209,7 @@ return {
                     "Held cards that do not share a suit",
                     "with a scored card have a {C:green}#1# in #2#{} chance",
                     "to become a {C:attention}wild card{}.",
+                    "Wild cards {C:attention}retrigger{} when scored.",
                 }
             },
             j_bb_sloth = {
@@ -215,15 +244,15 @@ return {
                     "If an {C:attention}Ace{} is scored,",
                     "all subsequent {C:attention}Kings{}, {C:attention}Queens{}, and {C:attention}Jacks{}",
                     "in the same played hand",
-                    "score {X:chips,C:white} X#1# {} Chips"
+                    "score {X:mult,C:white} X#1# {} Chips"
                 }
             },
             j_bb_physical_touch = {
                 name = 'Physical Touch',
                 text = {
                     "If scored hand contains a {C:attention}Straight,",
-                    "each held card that continues the",
-                    "{C:attention}straight{} gives {X:mult,C:white} X#1# {} Mult"
+                    "each held card that {C:attention}continues{} the",
+                    "{C:attention}Straight{} gives {X:mult,C:white} X#1# {} Mult"
                 }
             },
             j_bb_gifts = {
@@ -231,7 +260,9 @@ return {
                 text = {
                     "After defeating a blind,",
                     "create a {C:attention}random{} Joker Tag",
-                    "with the same rarity as a {C:attention}random{} joker."
+                    "with the same rarity as a {C:attention}random{} joker.",
+                    "If chosen joker has an {C:dark_edition}edition{}, create",
+                    "a matching edition tag as well"
                 }
             },
         },
@@ -262,26 +293,62 @@ return {
             },
         },
         Planet={},
-        Spectral={},
+        Spectral={
+            c_bb_void = {
+                name = 'Void',
+                text = {
+                    "Upgrade up to 4",
+                    "{C:attention}Stone{} or {C:attention}Glass{} cards"
+                },
+            },
+            c_bb_branch = {
+                name = 'Branch',
+                text = {
+                    "Turns central cards in hand",
+                    "into {C:attention}Stained Glass{} cards.",
+                    "{C:spades}Spades{}, {C:hearts}Hearts{}, {C:clubs}Clubs{}, and {C:diamonds}Diamonds{}",
+                    "get stained {C:green}Green{}, {C:red}Red{}, {C:blue}Blue{}, {C:money}Gold{}",
+                    "respectively"
+                },
+            },
+        },
         Stake={},
         Tag={
             tag_bb_common = {
                 name = 'Common Tag',
                 text = {
                     "Shop has a free",
-                    "Common Joker"
+                    "{C:blue}Common Joker{}"
                 }
             },
             tag_bb_legendary = {
                 name = 'Legendary Tag',
                 text = {
                     "Shop has a free",
-                    "Legendary Joker"
+                    "{C:purple}Legendary Joker{}"
                 }
             },
         },
         Tarot={},
-        Voucher={},
+        Voucher={
+            v_bb_refund = {
+                name = 'Refund Policy',
+                text = {
+                    "{C:}When setting Big Blind{}, recieve",
+                    "a refund for all Jokers {C:red}destroyed{}",
+                    "since last refund, based on Joker sell value",
+                }
+            },
+            v_bb_fraud = {
+                name = 'Joker Insurance Fraud',
+                text = {
+                    "{C:}When setting Small Blind{}, recieve",
+                    "payment for all Jokers {C:red}destroyed{}",
+                    "since last claim issued, based on Joker sell value",
+                    "{C:inactive}regardless of any refunds...{}"
+                }
+            },
+        },
     },
     misc = {
         achievement_descriptions={},
@@ -289,7 +356,9 @@ return {
         blind_states={},
         challenge_names={},
         collabs={},
-        dictionary={},
+        dictionary={
+            bb_mod = 'Modulo!'
+        },
         high_scores={},
         labels={},
         poker_hand_descriptions={},
@@ -299,7 +368,11 @@ return {
         suits_plural={},
         suits_singular={},
         tutorial={},
-        v_dictionary={},
-        v_text={},
+        v_dictionary={
+
+        },
+        v_text={
+
+        },
     },
 }

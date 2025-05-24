@@ -1,12 +1,6 @@
 SMODS.Consumable {
     key = 'void',
     set = 'Spectral',
-    loc_txt = {
-        name = 'Void',
-        text = {
-            "Upgrade up to 3 stone or glass cards"
-        },
-    },
     atlas = 'consumables',
     enhancement_gate = 'm_glass',
     pos = {x = 0, y = 0},
@@ -24,16 +18,18 @@ SMODS.Consumable {
         return available
     end,
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+        info_queue[#info_queue+1] = G.P_CENTERS.m_glass
         return {
             vars =
             {
-
+                
             },
         }
     end,
     can_use = function(self, card)
         local able = true
-        if #G.hand.highlighted >= 1 and #G.hand.highlighted <= 3 then
+        if #G.hand.highlighted >= 1 and #G.hand.highlighted <= 4 then
             for _, c in ipairs(G.hand.highlighted) do
                 if not (SMODS.has_enhancement(c, 'm_glass') or SMODS.has_enhancement(c, 'm_stone')) then
                     able = false

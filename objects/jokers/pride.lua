@@ -16,38 +16,37 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main and context.cardarea == G.jokers then
-            if pseudorandom('j_pride') <= G.GAME.probabilities.normal / card.ability.extra.odds then
-                local played_cards = {}
-                local seals = {'Gold', 'Red', 'Blue', 'Purple'}
-                local enhanced = nil
-                for _, c in ipairs(context.scoring_hand) do
-                    enhanced = false
-                    for k, v in pairs(SMODS.get_enhancements(c)) do
-                        if v then
-                            enhanced = true
-                        end
-                    end
-                    if not enhanced then
-                        played_cards[#played_cards + 1] = c
+        if context.before and context.cardarea == G.jokers and not context.blueprint then
+            local unenhanced = {}
+            local seals = {'Gold', 'Red', 'Blue', 'Purple'}
+            local enhanced = nil
+            for _, c in ipairs(context.scoring_hand) do
+                enhanced = false
+                for k, v in pairs(SMODS.get_enhancements(c)) do
+                    if v then
+                        enhanced = true
                     end
                 end
-                if #played_cards >= 1 then
-                    G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.3,
-                        func = (function()
-                            local c = pseudorandom_element(played_cards, pseudoseed('pride_card'))
-                            local seal = pseudorandom_element(seals, pseudoseed('pride_single'))
+                if not enhanced then
+                    unenhanced[#unenhanced + 1] = c
+                end
+            end
+            for _, c in ipairs(unenhanced) do
+                if pseudorandom('j_pride') <= G.GAME.probabilities.normal / card.ability.extra.odds then
+                    local seal = pseudorandom_element(seals, pseudoseed('pride_single'))
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
                             c:set_seal(seal, true)
                             c:juice_up()
                             card:juice_up()
-                            card_eval_status_text(card, 'extra', nil, nil, nil, {message = "Sharing!", colour = G.C.GREEN})
                             return true
-                        end)
+                        end
                     }))
                 end
-            else
+            end
+            if #unenhanced > 0 then 
                 return {
-                    message = 'Nope!',
+                    message = 'Nice!',
                     colour = G.C.GREEN,
                     card = card
                 }

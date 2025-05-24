@@ -22,6 +22,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+	key = "vouchers",
+	path = "vouchers.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
 	key = "tags",
 	path = "tags.png",
 	px = 34,
@@ -31,11 +38,13 @@ SMODS.Atlas {
 -- Jokers
 
 local jokers = {
+    
     'denial',
     'anger',
     'bargaining',
     'depression',
     'acceptance',
+
     'pride',
     'envy',
     'wrath',
@@ -43,11 +52,52 @@ local jokers = {
     'gluttony',
     'lust',
     'sloth',
+    
     'acts_of_service',
     'quality_time',
     'words_of_affirmation',
     'physical_touch',
-    'gifts'
+    'gifts',
+
+    --'fermis_paradox',
+    --'darwins_finches',
+    --'platos_cave',
+    --'theseuss_ship',
+    --'schrodingers_cat',
+    --'trolley_problem',
+    --'sisyphuss_boulder',
+    --'pandoras_box',
+    --'goldilocks_zone',
+
+    --'hindsight_bias',
+    --'slippery_slope',
+    --'straw_man',
+    --'gamblers_fallacy',
+    --'occams_razor',
+    --'texas_sharpshooter',
+    --'boomerang_effect',
+    --'pavlovs_dog',
+    --'mandela_effect',
+
+    --'bechdel_test',
+    --'double_jeopardy',
+    --'devils_advocate',
+    --'trojan_horse',
+    --'jumbo_shrimp',
+    --'black_sheep',
+    --'blind_spot',
+    --'bermuda_triangle',
+    --'peter_principle',
+
+    --'catch_22',
+    --'monte_hall',
+    --'uncertainty_principle',
+    --'murphys_law',
+    --'event_horizon',
+    --'scorched_earth',
+    --'maxwells_demon',
+    --'cocktail_effect',
+    --'echo_chamber'
 }
 
 for _, key in ipairs(jokers) do
@@ -58,7 +108,8 @@ end
 
 local consumables = {
     --'io',
-    'void'
+    'void',
+    'branch'
 }
 
 for _, key in ipairs(consumables) do
@@ -68,12 +119,25 @@ end
 -- Jokers
 
 local decks = {
+    'aid',
+    'cathedral',
+    'rogue',
     'modulo',
-    'cathedral'
 }
 
 for _, key in ipairs(decks) do
     SMODS.load_file('objects/decks/'..key..'.lua')()
+end
+
+-- Vouchers
+
+local vouchers = {
+    --'refund',
+    --'fraud'
+}
+
+for _, key in ipairs(vouchers) do
+    SMODS.load_file('objects/vouchers/'..key..'.lua')()
 end
 
 -- Tags

@@ -89,5 +89,15 @@ SMODS.Joker {
                 end}))
             end
         end
+        -- Check if card is wild and it needs to be retriggered
+        if context.repetition and context.cardarea == G.play then
+            if context.other_card.config.center.key == "m_wild" then
+                return {
+                    message = localize('k_again_ex'),
+                    repetitions = 1,
+                    card = card
+                }
+            end
+        end
     end
 }

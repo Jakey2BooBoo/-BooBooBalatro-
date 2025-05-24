@@ -8,7 +8,7 @@ SMODS.Enhancement {
     always_scores = false,
 	shatters = true,
     weight = 2,
-	config = {extra = {p_dollars = 5, odds = 16}},
+	config = {extra = {p_dollars = 3, odds = 16}},
     in_pool = function(self, args)
         available = false
         for _, c in ipairs(G.playing_cards) do

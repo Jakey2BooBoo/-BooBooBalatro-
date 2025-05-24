@@ -18,6 +18,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main and context.cardarea == G.jokers then
             for _, c in ipairs(context.scoring_hand) do
+                c:flip()
                 if pseudorandom('j_bargaining') <= G.GAME.probabilities.normal / card.ability.extra.odds then
                     if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
@@ -28,7 +29,6 @@ SMODS.Joker {
                                 (context.blueprint_card or card):juice_up(0.8, 0.8)
                                 local d = create_card(nil, G.consumeables, nil, nil, nil, nil,'c_death', 'j_bargaining')
                                 d:add_to_deck()
-                                d:set_edition('e_negative', true)
                                 G.consumeables:emplace(d)
                                 G.GAME.consumeable_buffer = 0
                                 card_eval_status_text(c, 'extra', nil, nil, nil, {
@@ -40,12 +40,18 @@ SMODS.Joker {
                                 return true
                             end)
                         }))
+                    else
+                        c:flip()
                     end
+                else
+                    c:flip()
                 end
             end
         end
 
         if context.destroy_card and context.cardarea == G.play and not context.blueprint then
+            card:juice_up()
+            context.destroy_card:flip()
             if pseudorandom('j_bargaining') <= G.GAME.probabilities.normal / card.ability.extra.odds then
                 return {
                     message = 'Oops!',
@@ -55,6 +61,7 @@ SMODS.Joker {
                     message_card = context.destroy_card
                 }
             end
+            context.destroy_card:flip()
         end
     end
 }

@@ -42,9 +42,8 @@ SMODS.Joker {
                             end
                         end
                     end
-                    G.E_MANAGER:add_event(Event({trigger = 'after',delay = 1, func = function() 
+                    G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.5, func = function() 
                         picked_indeces[#picked_indeces + 1] = chosen_index
-                        card:juice_up()
                         context.scoring_hand[chosen_index]:juice_up()
                         hand_card:juice_up()
                         context.scoring_hand[chosen_index]:set_ability(enhancement)
