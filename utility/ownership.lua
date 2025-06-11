@@ -1,9 +1,8 @@
 SMODS.Consumable:take_ownership('justice',
     {
     loc_txt = {
-        name ={
-            "The Justice"
-        },
+        name =
+            "Justice",
         text={
             "Enhances {C:attention}#1#{} selected",
             "Non-{C:attention}#2#{} into a",
@@ -62,9 +61,7 @@ SMODS.Consumable:take_ownership('justice',
 SMODS.Consumable:take_ownership('tower',
     {
     loc_txt = {
-        name={
-            "The Tower"
-        },
+        name= "The Tower",
         text={
             "Enhances {C:attention}#1#{} selected",
             "Non-{C:attention}#2#{} into a",
@@ -116,6 +113,7 @@ SMODS.Consumable:take_ownership('tower',
 SMODS.Consumable:take_ownership('lovers',
     {
     loc_txt = {
+        name= "Lovers",
         text={
             "Enhances {C:attention}#1#{} selected",
             "card into a",

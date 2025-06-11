@@ -24,7 +24,7 @@ SMODS.Enhancement {
         }
     end,
 	calculate = function(self, card, context)
-		if context.cardarea == G.play and context.main_scoring then
+		if context.main_scoring and context.cardarea == G.play then
 			if pseudorandom('m_stained_green') <= G.GAME.probabilities.normal / card.ability.extra.bonus_odds then
 				G.E_MANAGER:add_event(Event({
 					trigger = 'before',

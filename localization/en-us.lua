@@ -13,10 +13,11 @@ return {
             b_bb_modulo = {
                 name = "Modulo Deck",
                 text={
-                    "If {C:chips}chips{} x {C:mult}mult{} surpasses",
+                    "If {C:chips}Chips{} x {C:mult}Mult{} surpasses",
                     "blind amount, subtracts blind",
-                    "amount from projected score",
+                    "amount from projected score.",
                     "{C:attention}-1{} Starting Ante",
+                    "{C:blue}+1{} Hands",
                     "{C:purple}+2{} Joker Slots"
                 },
             },
@@ -101,7 +102,7 @@ return {
                 name = "Geode",
                 label = "Geode",
                 text = {
-                    'Balances {C:blue}chips{} and {C:mult}mult{}',
+                    'Balances {C:blue}Chips{} and {C:mult}Mult{}',
                     '{C:green}#1# in #2#{} chance of being destroyed',
                     '{C:inactive}no rank or suit{}'
                 }
@@ -111,7 +112,7 @@ return {
                 label = "Ruby Deposit",
                 text = {
                     'Scores {X:mult,C:white} X#1# {} Mult when scored.',
-                    'Reduces by {X:mult,C:white} X#2# {} Mult each scoring.',
+                    'Reduces by {X:mult,C:white} X#2# {} Mult each time scored.',
                     '{C:inactive}no rank or suit{}'
                 }
             },
@@ -137,10 +138,11 @@ return {
             j_bb_bargaining = {
                 name = 'Bargaining',
                 text = {
-                    "Cards played have a {C:green}#1# in #2#{}",
-                    "chance to be destroyed and a {C:green}#1# in #2#{}",
-                    "chance to grant a copy of {C:attention}Death{}",
-                    "{C:inactive}(Must have room){}"
+                    "When using a {C:planet}Planet{} card,",
+                    "{C:green}#1# in #2#{} chance to increase",
+                    "{C:chips}Chips{} and {C:mult}Mult{} of {C:attention}each poker hand{}",
+                    "that contains the upgraded hand",
+                    "{C:inactive}(e.g. {C:planet}Venus{} has a chance to increase {C:planet}Mars{})"
                 }
             },
             j_bb_depression = {
@@ -154,10 +156,10 @@ return {
             j_bb_acceptance = {
                 name = 'Acceptance',
                 text = {
-                    "This card gains {C:mult}+#2#{} mult for each quality",
-                    "shared between adjacent scored {C:attention}numbered cards{}",
+                    "This card gains {C:chips}+#2#{} Chips for each quality",
+                    "shared between adjacent scored {C:attention}Numbered Cards{}",
                     "(qualities: rank, suit, enhancement, edition, seal)",
-                    "{C:inactive}(Currently {}{C:mult}+#1# mult{})"
+                    "{C:inactive}(Currently {}{C:chips}+#1# Chips{})"
                 }
             },
             j_bb_pride = {
@@ -165,7 +167,8 @@ return {
                 text = {
                     "{C:attention}Unenhanced{} cards have",
                     "a {C:green}#1# in #2#{} chance to",
-                    "gain a random {C:attention}seal{}"
+                    "gain a random {C:attention}seal{}",
+                    "after scoring"
                 }
             },
             j_bb_envy = {
@@ -189,9 +192,10 @@ return {
             j_bb_greed = {
                 name = 'Greed',
                 text = {
-                    'Cards with {C:gold}gold{} seals or {C:gold}gold{}',
-                    'ehnhancements gain {C:gold}$#3#{} to their bonus when triggerd.',
-                    'Both are {C:red}destroyed{} when they are discarded'
+                    '{C:gold}Gold{} cards and cards with',
+                    '{C:gold}gold{} seals gain {C:gold}$#3#{} to their',
+                    'bonus when triggerd and are',
+                    '{C:red}destroyed{} when discarded'
                 }
             },
             j_bb_gluttony = {
@@ -215,11 +219,12 @@ return {
             j_bb_sloth = {
                 name = 'Sloth',
                 text = {
-                    "When using a {C:planet}Planet{} card,",
-                    "{C:green}#1# in #2#{} chance to increase",
-                    "{C:chips}Chips{} and {C:mult}Mult{} of {C:attention}each poker hand{}",
-                    "that contains the upgraded hand",
-                    "{C:inactive}(e.g. {C:planet}Venus{} has a chance to increase {C:planet}Mars{})"
+                    '{C:green}1 in 2{} chance to regain',
+                    '{C:blue}1 Hand{} after each hand played.',
+                    'When selecting blind, sets {C:attention}blind score{} ',
+                    'to the {C;attention}score{} achieved last round.',
+                    '{C:inactive} Oops! This Joker is uneffected by{}',
+                    '{C:inactive}actions that modify odds{}'
                 }
             },
             j_bb_acts_of_service = {
@@ -244,7 +249,7 @@ return {
                     "If an {C:attention}Ace{} is scored,",
                     "all subsequent {C:attention}Kings{}, {C:attention}Queens{}, and {C:attention}Jacks{}",
                     "in the same played hand",
-                    "score {X:mult,C:white} X#1# {} Chips"
+                    "score {X:mult,C:white} X#1# {} Mult"
                 }
             },
             j_bb_physical_touch = {
@@ -267,6 +272,13 @@ return {
             },
         },
         Other={
+            bb_green_seal = {
+                name = 'Green Seal',
+                text = {
+                  'Increases all odds',
+                  'this round by {X:green,C:white}+1{}'
+                },
+            },
             denial_gold = {
                 name = 'Gold Seal',
                 text = {
@@ -309,6 +321,14 @@ return {
                     "{C:spades}Spades{}, {C:hearts}Hearts{}, {C:clubs}Clubs{}, and {C:diamonds}Diamonds{}",
                     "get stained {C:green}Green{}, {C:red}Red{}, {C:blue}Blue{}, {C:money}Gold{}",
                     "respectively"
+                },
+            },
+            c_bb_chance = {
+                name = 'Chance',
+                text = {
+                    "Add a {C:green}Green Seal{}",
+                    "to {C:attention}1{} selected",
+                    "card in your hand"
                 },
             },
         },
@@ -360,7 +380,9 @@ return {
             bb_mod = 'Modulo!'
         },
         high_scores={},
-        labels={},
+        labels={
+            bb_green_seal = "Green Seal"
+        },
         poker_hand_descriptions={},
         poker_hands={},
         quips={},

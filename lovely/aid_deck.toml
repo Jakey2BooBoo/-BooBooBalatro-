@@ -20,4 +20,12 @@ payload = '''
         _pool_size = _pool_size + 1
       end
     end
+    -- make tower and justice more common
+    --if (G.GAME.selected_back_key or {}).key == 'b_bb_aid' and v.key:find('c_') then
+    --  for i = 1, 20 do
+    --    _pool[#_pool + 1] = 'c_justice'
+    --    _pool[#_pool + 1] = 'c_tower'
+    --    _pool_size = _pool_size + 2
+    --  end
+    --end
 '''

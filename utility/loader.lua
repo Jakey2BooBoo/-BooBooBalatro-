@@ -1,4 +1,10 @@
 -- Atli
+SMODS.Atlas {
+	key = "modicon",
+	path = "modicon.png",
+	px = 34,
+	py = 34
+}
 
 SMODS.Atlas {
 	key = "jokers",
@@ -36,84 +42,106 @@ SMODS.Atlas {
 }
 
 -- Jokers
-
 local jokers = {
+    grief_stages = {
+        'denial',
+        'anger',
+        'bargaining',
+        'depression',
+        'acceptance',
+    },
+
+    deadly_sins = {
+        'pride',
+        'envy',
+        'wrath',
+        'greed',
+        'gluttony',
+        'lust',
+        'sloth',
+    },
+
+    love_languages = {
+        'acts_of_service',
+        'quality_time',
+        'words_of_affirmation',
+        'physical_touch',
+        'gifts',
+    },
+
+    jokers_batch_4 = {
+    --    'netwons_cradle',
+    --    'fermis_paradox',
+    --    'darwins_finches',
+    --    'platos_cave',
+    --    'theseuss_ship',
+    --    'schrodingers_cat',
+    --    'trolley_problem',
+    --    'sisyphuss_boulder',
+    --    'pandoras_box',
+    --    'goldilocks_zone',
+    --
+    --    'confirmation_bias',
+    --    'hindsight_bias',
+    --    'slippery_slope',
+    --    'straw_man',
+    --    'gamblers_fallacy',
+    --    'occams_razor',
+    --    'texas_sharpshooter',
+    --    'boomerang_effect',
+    --    'pavlovs_dog',
+    --    'mandela_effect',
     
-    'denial',
-    'anger',
-    'bargaining',
-    'depression',
-    'acceptance',
-
-    'pride',
-    'envy',
-    'wrath',
-    'greed',
-    'gluttony',
-    'lust',
-    'sloth',
+    --    'checkovs_gun',
+    --    'bechdel_test',
+    --    'double_jeopardy',
+    --    'devils_advocate',
+    --    'trojan_horse',
+    --    'jumbo_shrimp',
+    --    'black_sheep',
+    --    'blind_spot',
+    --    'bermuda_triangle',
+    --    'peter_principle',
     
-    'acts_of_service',
-    'quality_time',
-    'words_of_affirmation',
-    'physical_touch',
-    'gifts',
-
-    --'fermis_paradox',
-    --'darwins_finches',
-    --'platos_cave',
-    --'theseuss_ship',
-    --'schrodingers_cat',
-    --'trolley_problem',
-    --'sisyphuss_boulder',
-    --'pandoras_box',
-    --'goldilocks_zone',
-
-    --'hindsight_bias',
-    --'slippery_slope',
-    --'straw_man',
-    --'gamblers_fallacy',
-    --'occams_razor',
-    --'texas_sharpshooter',
-    --'boomerang_effect',
-    --'pavlovs_dog',
-    --'mandela_effect',
-
-    --'bechdel_test',
-    --'double_jeopardy',
-    --'devils_advocate',
-    --'trojan_horse',
-    --'jumbo_shrimp',
-    --'black_sheep',
-    --'blind_spot',
-    --'bermuda_triangle',
-    --'peter_principle',
-
-    --'catch_22',
-    --'monte_hall',
-    --'uncertainty_principle',
-    --'murphys_law',
-    --'event_horizon',
-    --'scorched_earth',
-    --'maxwells_demon',
-    --'cocktail_effect',
-    --'echo_chamber'
+    --    'package_deal',
+    --    'catch_22',
+    --    'monte_hall',
+    --    'uncertainty_principle',
+    --    'murphys_law',
+    --    'event_horizon',
+    --    'scorched_earth',
+    --    'maxwells_demon',
+    --    'cocktail_effect',
+    --    'echo_chamber'
+    }
 }
 
-for _, key in ipairs(jokers) do
-    SMODS.load_file('objects/jokers/'..key..'.lua')()
+for batch, items in pairs(jokers) do
+    for _, key in ipairs(items) do
+        SMODS.load_file('objects/jokers/'..batch..'/'..key..'.lua')()
+    end
 end
 
 -- Consumables
 
 local consumables = {
-    --'io',
-    'void',
-    'branch'
+    tarot = {
+        --
+    },
+    planets = {
+        --'io',
+    },
+    spectrals = {
+        'void',
+        'branch',
+        'chance'
+    },
 }
 
-for _, key in ipairs(consumables) do
-    SMODS.load_file('objects/consumables/'..key..'.lua')()
+for batch, items in pairs(consumables) do
+    for _, key in ipairs(items) do
+        SMODS.load_file('objects/consumables/'..batch..'/'..key..'.lua')()
+    end
 end
 
 -- Jokers
@@ -168,6 +196,15 @@ for _, key in ipairs(enhancements) do
     SMODS.load_file('objects/enhancements/'..key..'.lua')()
 end
 
+-- Seals
+
+local seals = {
+    'green',
+}
+
+for _, key in ipairs(seals) do
+    SMODS.load_file('objects/seals/'..key..'.lua')()
+end
 -- Challenges
 
 local challenges = {

@@ -2,14 +2,14 @@ SMODS.Back{
     key = 'modulo',
     atlas = 'enhancers',
     pos = {x = 0, y = 2},
-	config = {hands = 1, discards =1, vouchers = {'v_overstock_norm','v_clearance_sale'}, consumables = {}},
+	config = {hands = 1, consumables = {}, joker_slot = 2},
     loc_vars = function(self, info_queue, card)
         return {vars = {self.config.hands, self.config.discards}}
     end,
     apply = function(self,back)
         ease_ante(-1)
         G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante
-        G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante-1
+        G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante - 1
         G.GAME.banned_keys['bl_needle'] = true
     end,
     calculate = function(self, back, context)
