@@ -5,9 +5,8 @@ return {
                 name = "!Aid! Deck",
                 text={
                     "{C:dark_edition}!BooBooBalatro! Jokers{}",
-                    "are {C:green}3x more likely{} to appear.",
-                    "Obtain a {C:attention}Charm Tag{} after",
-                    "defeating each blind."
+                    "are {C:green}3x more likely{}",
+                    "to appear."
                 },
             },
             b_bb_modulo = {
@@ -219,9 +218,9 @@ return {
             j_bb_sloth = {
                 name = 'Sloth',
                 text = {
-                    '{C:green}1 in 2{} chance to regain',
+                    '{C:green}1 in #1#{} chance to regain',
                     '{C:blue}1 Hand{} after each hand played.',
-                    'When selecting blind, sets {C:attention}blind score{} ',
+                    'When selecting blind, sets {C:attention}blind score{}',
                     'to the {C;attention}score{} achieved last round.',
                     '{C:inactive} Oops! This Joker is uneffected by{}',
                     '{C:inactive}actions that modify odds{}'

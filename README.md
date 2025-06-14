@@ -1,5 +1,5 @@
 # BooBooBalatro
-Balatro Mod featuring new Jokers, Enhancmenets, and Decks (with more to come)
+Balatro Mod featuring new Jokers, Enhancements, and Decks (with more to come)
 
 ## Recent Changes
 - Fixed timings of Pride
